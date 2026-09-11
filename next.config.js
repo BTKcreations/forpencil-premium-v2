@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   // Required for GitHub Pages if not using a custom domain
-  basePath: process.env.NODE_ENV === 'production' ? '/forpencil-prototype' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/forpencil-premium-v2' : '',
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [
