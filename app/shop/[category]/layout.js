@@ -1,7 +1,15 @@
 import { categories } from '@/data/categories';
 
 export function generateStaticParams() {
-  return categories.map((c) => ({
+  const allCategories = [];
+  categories.forEach(c => {
+    allCategories.push(c);
+    if (c.children) {
+      allCategories.push(...c.children);
+    }
+  });
+
+  return allCategories.map((c) => ({
     category: c.slug,
   }));
 }
