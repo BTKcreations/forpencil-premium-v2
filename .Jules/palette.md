@@ -1,0 +1,3 @@
+## 2025-05-28 - Missing label text for contact form inputs
+**Learning:** Found multiple instances where form inputs (`<input>`, `<textarea>`) lack proper labels for screen readers, relying solely on `placeholder` attributes. Adding `aria-label` attributes to these inputs improves accessibility by providing explicit names for screen readers without altering the visual design or requiring new custom CSS (like a `.sr-only` class), which violates constraints against adding custom styling.
+**Action:** Add `aria-label` attributes directly to inputs that visually rely only on placeholders to maintain both the visual design constraints and accessibility standards.
