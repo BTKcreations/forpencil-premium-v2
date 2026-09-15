@@ -32,10 +32,23 @@ export default function ContactPage() {
 
         <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Send a Message</h2>
-          <input type="text" placeholder="Your Name" className="input" required />
-          <input type="email" placeholder="Your Email" className="input" required />
-          <textarea placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
-          <button type="submit" className="btn btn--primary btn--lg">Send Message</button>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+            <label htmlFor="name" className="label">Your Name</label>
+            <input id="name" type="text" placeholder="Your Name" className="input" required />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+            <label htmlFor="email" className="label">Your Email</label>
+            <input id="email" type="email" placeholder="Your Email" className="input" required />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+            <label htmlFor="message" className="label">Your Message</label>
+            <textarea id="message" placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
+          </div>
+
+          <button type="submit" className="btn btn--primary btn--lg" style={{ marginTop: 'var(--space-2)' }}>Send Message</button>
         </form>
       </div>
     </div>
