@@ -1,7 +1,22 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export default function ContactPage() {
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setTimeout(() => {
+      setStatus('success');
+      e.target.reset();
+      setTimeout(() => setStatus('idle'), 3000);
+    }, 1200);
+  };
+
   return (
     <div style={{ minHeight: '60vh', padding: 'var(--space-16) 0' }}>
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -30,12 +45,19 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Send a Message</h2>
-          <input type="text" placeholder="Your Name" className="input" required />
-          <input type="email" placeholder="Your Email" className="input" required />
-          <textarea placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
-          <button type="submit" className="btn btn--primary btn--lg">Send Message</button>
+          <input type="text" placeholder="Your Name" aria-label="Your Name" className="input" required disabled={status === 'submitting'} />
+          <input type="email" placeholder="Your Email" aria-label="Your Email" className="input" required disabled={status === 'submitting'} />
+          <textarea placeholder="Your Message" aria-label="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }} disabled={status === 'submitting'}></textarea>
+          <button
+            type="submit"
+            className="btn btn--primary btn--lg"
+            disabled={status !== 'idle'}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', transition: 'all 0.2s ease' }}
+          >
+            {status === 'submitting' ? 'Sending...' : status === 'success' ? <><CheckCircle2 size={20} /> Message Sent!</> : 'Send Message'}
+          </button>
         </form>
       </div>
     </div>
