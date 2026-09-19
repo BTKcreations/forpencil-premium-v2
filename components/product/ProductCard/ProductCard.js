@@ -113,6 +113,8 @@ export default function ProductCard({ product, index = 0 }) {
           <button 
             className={`${styles.quickBtn} ${added ? styles.quickBtnAdded : ''}`}
             onClick={handleAddToCart}
+            aria-label={added ? `Added ${product.name} to bag` : `Quick add ${product.name} to bag`}
+            aria-live="polite"
           >
             {added ? (
               <>
