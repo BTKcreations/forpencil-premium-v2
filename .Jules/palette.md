@@ -1,0 +1,3 @@
+## 2024-10-25 - Form Label Accessibility
+**Learning:** Found that `<label>` elements were being used without `htmlFor` attributes matching the `id` of their corresponding `<input>` elements in the account settings page. This prevents screen readers from properly announcing the label when the input is focused, and removes the ability for mouse users to click the label text to focus the input (a common and expected interaction).
+**Action:** Always ensure that every `<label>` has an `htmlFor` attribute that strictly matches the `id` of the input it describes. For React/Next.js, remember to use `htmlFor` instead of `for`.
