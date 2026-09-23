@@ -102,27 +102,27 @@ export default function AccountPage() {
                 <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
-                      <label>First Name</label>
-                      <input type="text" className="input" defaultValue="John" />
+                      <label htmlFor="firstName">First Name</label>
+                      <input id="firstName" type="text" className="input" defaultValue="John" />
                     </div>
                     <div className={styles.formGroup}>
-                      <label>Last Name</label>
-                      <input type="text" className="input" defaultValue="Doe" />
+                      <label htmlFor="lastName">Last Name</label>
+                      <input id="lastName" type="text" className="input" defaultValue="Doe" />
                     </div>
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Email Address</label>
-                    <input type="email" className="input" defaultValue="john.doe@example.com" readOnly />
+                    <label htmlFor="emailAddress">Email Address</label>
+                    <input id="emailAddress" type="email" className="input" defaultValue="john.doe@example.com" readOnly />
                   </div>
                   
                   <h3 className={styles.subTitle}>Change Password</h3>
                   <div className={styles.formGroup}>
-                    <label>Current Password</label>
-                    <input type="password" className="input" />
+                    <label htmlFor="currentPassword">Current Password</label>
+                    <input id="currentPassword" type="password" className="input" />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>New Password</label>
-                    <input type="password" className="input" />
+                    <label htmlFor="newPassword">New Password</label>
+                    <input id="newPassword" type="password" className="input" />
                   </div>
                   <button type="submit" className="btn btn--primary">Save Changes</button>
                 </form>
