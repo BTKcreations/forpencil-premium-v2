@@ -1,0 +1,3 @@
+## 2025-02-23 - Added confirmation for destructive action in Wishlist
+**Learning:** Destructive actions like clearing a curated wishlist require confirmation to prevent accidental loss, which causes user frustration. The "Clear Wishlist" button previously cleared the list silently, which is an accessibility and UX issue.
+**Action:** Implemented a standard browser confirmation (`window.confirm`) prompt when users attempt to clear their wishlist. Also ensured the button has an `aria-label` to provide context for screen readers. Future features with destructive actions (like deleting an account or clearing cart) should implement this pattern or use a custom modal to verify user intent.
