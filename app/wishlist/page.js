@@ -9,6 +9,12 @@ import styles from './wishlist.module.css';
 export default function WishlistPage() {
   const { items, clearWishlist } = useWishlist();
 
+  const handleClearWishlist = () => {
+    if (window.confirm('Are you sure you want to clear your entire wishlist?')) {
+      clearWishlist();
+    }
+  };
+
   if (items.length === 0) {
     return (
       <div className={styles.emptyState}>
@@ -34,7 +40,11 @@ export default function WishlistPage() {
             <h1 className={styles.title}>My Wishlist</h1>
             <p className={styles.count}>{items.length} {items.length === 1 ? 'item' : 'items'}</p>
           </div>
-          <button className={styles.clearBtn} onClick={clearWishlist}>
+          <button
+            className={styles.clearBtn}
+            onClick={handleClearWishlist}
+            aria-label="Clear all items from wishlist"
+          >
             Clear Wishlist
           </button>
         </div>
