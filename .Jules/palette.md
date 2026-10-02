@@ -1,0 +1,3 @@
+## 2023-10-02 - Custom Controls Boundary Feedback
+**Learning:** Custom UI controls (like + / - quantity steppers) often lack the innate boundary feedback of native number inputs. When a user tries to decrease a quantity past its minimum limit (e.g., 1), ignoring the click without visual feedback causes confusion. Screen reader users especially need dynamic `aria-label` updates to explain *why* the button is inactive.
+**Action:** Always implement a `:disabled` visual state (opacity + cursor) on custom stepper buttons at their boundary limits, accompanied by an explanatory `title` tooltip and updated `aria-label`.
