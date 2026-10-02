@@ -86,7 +86,9 @@ export default function CartDrawer() {
                       <button
                         className={styles.qtyBtn}
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        aria-label="Decrease quantity"
+                        aria-label={item.quantity <= 1 ? "Minimum quantity reached" : "Decrease quantity"}
+                        title={item.quantity <= 1 ? "Minimum quantity reached" : "Decrease quantity"}
+                        disabled={item.quantity <= 1}
                       >
                         <Minus size={12} />
                       </button>
