@@ -1,0 +1,3 @@
+## 2024-05-18 - Interactive Product Card Buttons Accessibility
+**Learning:** Repetitive buttons like "Wishlist" and "Quick Add" in product grids lack context for screen readers when they use generic `aria-label`s like "Add to wishlist". Additionally, temporary visual state changes (like showing "Added to Bag" for 1.8 seconds) are easily missed by non-visual users if the element does not announce its change.
+**Action:** When working with repeating components (e.g. lists, grids), interpolate specific item names into `aria-label`s (e.g., ``aria-label={`Add ${product.name} to wishlist`}``). For temporary inline state updates that do not focus shift, use `aria-live="polite"` on the parent element or the button itself to ensure state transitions are announced.
