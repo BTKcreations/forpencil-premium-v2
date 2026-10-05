@@ -33,7 +33,7 @@ export default function CartDrawer() {
 
         {/* Free Shipping Progress Bar */}
         {cartCount > 0 && (
-          <div className={styles.shippingBar}>
+          <div className={styles.shippingBar} aria-live="polite">
             {amountToFreeShipping > 0 ? (
               <p className={styles.shippingText}>
                 Add <strong className={styles.shippingHighlight}>₹{formatPrice(amountToFreeShipping)}</strong> more to unlock <strong className={styles.shippingHighlight}>COMPLIMENTARY EXPRESS SHIPPING</strong>
@@ -43,7 +43,7 @@ export default function CartDrawer() {
                 <Truck size={14} /> Congratulations! You’ve unlocked <strong>Free Express Shipping!</strong>
               </p>
             )}
-            <div className={styles.progressBar}>
+            <div className={styles.progressBar} role="progressbar" aria-valuenow={Math.round(shippingProgress)} aria-valuemin="0" aria-valuemax="100">
               <div className={styles.progressFill} style={{ width: `${shippingProgress}%` }} />
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function CartDrawer() {
                       <button
                         className={styles.qtyBtn}
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        aria-label="Decrease quantity"
+                        aria-label={`Decrease quantity for ${item.name}`}
                       >
                         <Minus size={12} />
                       </button>
@@ -94,7 +94,7 @@ export default function CartDrawer() {
                       <button
                         className={styles.qtyBtn}
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        aria-label="Increase quantity"
+                        aria-label={`Increase quantity for ${item.name}`}
                       >
                         <Plus size={12} />
                       </button>
@@ -105,8 +105,8 @@ export default function CartDrawer() {
                 <button
                   className={styles.removeBtn}
                   onClick={() => removeItem(item.id)}
-                  aria-label="Remove item"
-                  title="Remove item"
+                  aria-label={`Remove ${item.name} from cart`}
+                  title={`Remove ${item.name} from cart`}
                 >
                   <Trash2 size={14} />
                 </button>
