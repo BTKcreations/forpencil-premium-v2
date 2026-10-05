@@ -1,0 +1,3 @@
+## 2024-05-18 - Cart Drawer Accessibility Improvements
+**Learning:** Generic aria-labels (like "Decrease quantity") in loops/lists fail to provide necessary context to screen reader users when scanning interactive elements. Additionally, dynamic shipping thresholds need `aria-live="polite"` to announce properly, and purely visual progress bars must be explicitly given `role="progressbar"` with `aria-value*` attributes.
+**Action:** When implementing loops for lists of items (e.g., cart items), always append the item name to the `aria-label` for associated action buttons. For visual status bars, ensure the semantic role and bounds are explicitly declared, and use `aria-live` regions for status text that updates dynamically based on user interaction.
