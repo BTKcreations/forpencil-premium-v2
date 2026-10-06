@@ -57,21 +57,21 @@ export default function CheckoutPage() {
                   <h2>Contact Information</h2>
                   <span>Already have an account? <Link href="/account" className="link">Log in</Link></span>
                 </div>
-                <input type="email" className="input" placeholder="Email" required />
+                <input type="email" className="input" placeholder="Email" aria-label="Email Address" required />
 
                 <h2 className={styles.sectionTitle}>Shipping Address</h2>
                 <div className={styles.formRow}>
-                  <input type="text" className="input" placeholder="First Name" required />
-                  <input type="text" className="input" placeholder="Last Name" required />
+                  <input type="text" className="input" placeholder="First Name" aria-label="First Name" required />
+                  <input type="text" className="input" placeholder="Last Name" aria-label="Last Name" required />
                 </div>
-                <input type="text" className="input" placeholder="Address" required />
-                <input type="text" className="input" placeholder="Apartment, suite, etc. (optional)" />
+                <input type="text" className="input" placeholder="Address" aria-label="Address" required />
+                <input type="text" className="input" placeholder="Apartment, suite, etc. (optional)" aria-label="Apartment, suite, etc. (optional)" />
                 <div className={styles.formRow}>
-                  <input type="text" className="input" placeholder="City" required />
-                  <input type="text" className="input" placeholder="State" required />
-                  <input type="text" className="input" placeholder="PIN Code" required />
+                  <input type="text" className="input" placeholder="City" aria-label="City" required />
+                  <input type="text" className="input" placeholder="State" aria-label="State" required />
+                  <input type="text" className="input" placeholder="PIN Code" aria-label="PIN Code" required />
                 </div>
-                <input type="tel" className="input" placeholder="Phone" required />
+                <input type="tel" className="input" placeholder="Phone" aria-label="Phone Number" required />
 
                 <button type="submit" className="btn btn--primary btn--lg btn--full" style={{ marginTop: 'var(--space-6)' }}>
                   Continue to Shipping
@@ -152,7 +152,7 @@ export default function CheckoutPage() {
               </div>
 
               <div className={styles.discountCode}>
-                <input type="text" className="input" placeholder="Discount code" />
+                <input type="text" className="input" placeholder="Discount code" aria-label="Discount code" />
                 <button className="btn btn--secondary">Apply</button>
               </div>
 
