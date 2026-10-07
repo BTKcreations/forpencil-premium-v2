@@ -1,0 +1,3 @@
+## 2024-10-07 - Form Input Label Accessibility
+**Learning:** Found that the app's forms rely on placeholders or lack explicit label associations (`htmlFor` / `id`), breaking screen reader usability and reducing click area.
+**Action:** Added `htmlFor` on `<label>` elements and matching `id` attributes on inputs within the Account Details form to improve form accessibility and established a guideline to always use these associations or `aria-label` where visual labels are absent.
