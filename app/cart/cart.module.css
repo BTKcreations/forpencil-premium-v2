@@ -139,8 +139,13 @@
   transition: background var(--duration-fast);
 }
 
-.qtySelector button:hover {
+.qtySelector button:hover:not(:disabled) {
   background: var(--bg-hover);
+}
+
+.qtySelector button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .qtySelector span {

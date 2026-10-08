@@ -67,7 +67,11 @@ export default function CartPage() {
 
                 <div className={styles.itemQuantity}>
                   <div className={styles.qtySelector}>
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} aria-label="Decrease quantity">
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      aria-label="Decrease quantity"
+                      disabled={item.quantity <= 1}
+                    >
                       <Minus size={14} />
                     </button>
                     <span>{item.quantity}</span>

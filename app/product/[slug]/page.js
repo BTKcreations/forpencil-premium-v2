@@ -184,6 +184,7 @@ export default function ProductPage({ params }) {
                   className={styles.qtyBtn}
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   aria-label="Decrease quantity"
+                  disabled={quantity <= 1}
                 >
                   <Minus size={15} />
                 </button>
