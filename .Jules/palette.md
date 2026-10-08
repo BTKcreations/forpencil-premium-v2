@@ -1,0 +1,3 @@
+## 2024-03-24 - Bounded Quantity Controls Need Disabled States
+**Learning:** Across the cart and product pages, quantity controls had logical limits (min: 1) but lacked visual or semantic constraints. This led to "dead clicks" where users could interact with a button that did nothing, which is particularly confusing for screen reader users who receive no feedback about why the action failed.
+**Action:** Always bind the `disabled` HTML attribute to the limit conditions of quantity selectors (`quantity <= 1` for decrease, or a `max` for increase). Ensure corresponding CSS handles the `:disabled` state (e.g., `opacity: 0.4; cursor: not-allowed`) and prevents `:hover` styles from applying to disabled elements.

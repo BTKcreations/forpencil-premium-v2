@@ -249,8 +249,13 @@
   transition: background var(--duration-fast);
 }
 
-.qtyBtn:hover {
+.qtyBtn:hover:not(:disabled) {
   background: var(--bg-hover);
+}
+
+.qtyBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .qtyValue {
