@@ -36,10 +36,10 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email address..."
+                  aria-label="Email address for newsletter"
                   className={styles.newsletterInput}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  aria-label="Email address for newsletter subscription"
                   required
                 />
                 <button type="submit" className={`btn btn--primary ${styles.newsletterBtn}`}>

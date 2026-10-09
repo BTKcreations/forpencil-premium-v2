@@ -32,9 +32,9 @@ export default function ContactPage() {
 
         <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Send a Message</h2>
-          <input type="text" placeholder="Your Name" className="input" required />
-          <input type="email" placeholder="Your Email" className="input" required />
-          <textarea placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
+          <input type="text" placeholder="Your Name" aria-label="Your Name" className="input" required />
+          <input type="email" placeholder="Your Email" aria-label="Your Email" className="input" required />
+          <textarea placeholder="Your Message" aria-label="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
           <button type="submit" className="btn btn--primary btn--lg">Send Message</button>
         </form>
       </div>
