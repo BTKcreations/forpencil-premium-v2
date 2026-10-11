@@ -1,7 +1,21 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export default function ContactPage() {
+  const [status, setStatus] = useState('idle'); // idle, submitting, success
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    // Simulate network request
+    setTimeout(() => {
+      setStatus('success');
+    }, 1200);
+  };
+
   return (
     <div style={{ minHeight: '60vh', padding: 'var(--space-16) 0' }}>
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -30,13 +44,28 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Send a Message</h2>
-          <input type="text" placeholder="Your Name" className="input" required />
-          <input type="email" placeholder="Your Email" className="input" required />
-          <textarea placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }}></textarea>
-          <button type="submit" className="btn btn--primary btn--lg">Send Message</button>
-        </form>
+        {status === 'success' ? (
+          <div style={{ textAlign: 'center', padding: 'var(--space-12)', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', maxWidth: '500px', margin: '0 auto' }}>
+            <CheckCircle2 size={48} style={{ margin: '0 auto var(--space-6)', color: 'var(--success)' }} />
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', marginBottom: 'var(--space-4)' }}>Message Sent</h2>
+            <p style={{ color: 'var(--fg-secondary)', marginBottom: 'var(--space-8)' }}>
+              Thank you for reaching out. We will get back to you shortly.
+            </p>
+            <button onClick={() => setStatus('idle')} className="btn btn--primary">
+              Send Another Message
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '500px', margin: '0 auto' }}>
+            <h2 style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Send a Message</h2>
+            <input aria-label="Your Name" type="text" placeholder="Your Name" className="input" required disabled={status === 'submitting'} aria-busy={status === 'submitting'} />
+            <input aria-label="Your Email" type="email" placeholder="Your Email" className="input" required disabled={status === 'submitting'} aria-busy={status === 'submitting'} />
+            <textarea aria-label="Your Message" placeholder="Your Message" className="input" rows={5} required style={{ resize: 'vertical' }} disabled={status === 'submitting'} aria-busy={status === 'submitting'}></textarea>
+            <button type="submit" className="btn btn--primary btn--lg" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
+              {status === 'submitting' ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
