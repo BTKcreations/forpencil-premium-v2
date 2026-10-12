@@ -117,6 +117,8 @@ export default function ProductPage({ params }) {
                     key={idx}
                     className={`${styles.thumbBtn} ${selectedImageIndex === idx ? styles.thumbBtnActive : ''}`}
                     onClick={() => setSelectedImageIndex(idx)}
+                    aria-label={`View image ${idx + 1} of ${product.name}`}
+                    aria-current={selectedImageIndex === idx ? 'true' : undefined}
                   >
                     <img src={img.src} alt={`Thumbnail ${idx + 1}`} />
                   </button>
