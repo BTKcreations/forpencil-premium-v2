@@ -383,6 +383,7 @@ export default function Header() {
                 type="search"
                 className={styles.searchInput}
                 placeholder="Search watercolors, sketchbooks, POSCA, acrylics, Brustro..."
+                aria-label="Search catalog"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />

@@ -1,0 +1,3 @@
+## 2024-05-24 - Form Field Accessibility Pattern
+**Learning:** Found a recurring pattern in this app where many input fields (Checkout, Contact, and Header Search) relied solely on `placeholder` text without `aria-label`s or associated `<label>`s, making them inaccessible to screen readers. In places where `<label>` elements were used (like the Account page), they lacked `htmlFor` attributes, meaning clicking the label didn't focus the input and screen readers wouldn't associate them.
+**Action:** When working on forms in this app, always ensure that either an explicitly associated label (`htmlFor` + `id`) is present, or if the design mandates a visually hidden label / placeholder-only approach, a descriptive `aria-label` must be added to the input field.
