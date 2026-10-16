@@ -1,0 +1,3 @@
+## 2024-10-24 - Contextual ARIA Labels in Lists
+**Learning:** Repeated interactive elements within product lists and cart item grids (like "Add to wishlist", "Remove item", "Increase quantity") often use generic ARIA labels. For screen reader users tabbing through these elements, these generic labels provide no context about which specific item the button acts upon, creating an ambiguous and frustrating experience.
+**Action:** Always include the item or product name dynamically within the `aria-label` attribute (e.g., `aria-label={\`Remove ${product.name} from wishlist\`}`) for interactive elements in lists, grids, or repeated components.

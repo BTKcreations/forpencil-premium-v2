@@ -76,8 +76,8 @@ export default function ProductCard({ product, index = 0 }) {
         <button
           className={`${styles.wishlistBtn} ${wishlisted ? styles.wishlisted : ''}`}
           onClick={handleWishlist}
-          aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-          title={wishlisted ? 'Remove from wishlist' : 'Save to wishlist'}
+          aria-label={wishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
+          title={wishlisted ? `Remove ${product.name} from wishlist` : `Save ${product.name} to wishlist`}
         >
           <Heart size={15} fill={wishlisted ? 'currentColor' : 'none'} />
         </button>
@@ -113,6 +113,7 @@ export default function ProductCard({ product, index = 0 }) {
           <button 
             className={`${styles.quickBtn} ${added ? styles.quickBtnAdded : ''}`}
             onClick={handleAddToCart}
+            aria-label={added ? `Added ${product.name} to bag` : `Quick add ${product.name} to bag`}
           >
             {added ? (
               <>
