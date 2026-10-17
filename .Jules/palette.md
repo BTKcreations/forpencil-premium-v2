@@ -1,0 +1,3 @@
+## 2024-03-24 - Context-Aware Aria-Labels in Grids and Lists
+**Learning:** Screen reader users can struggle to identify which item an action applies to when buttons use generic labels like "Add to wishlist", "Increase quantity", or "Remove item" within repetitive structures like product grids and cart lists. Relying solely on DOM order is not always sufficient for clarity.
+**Action:** Always inject the specific item's context (e.g., `product.name` or `item.name`) into `aria-label` and `title` attributes for interactive elements inside map functions or lists to ensure action specificity for assistive technologies.
