@@ -67,11 +67,11 @@ export default function CartPage() {
 
                 <div className={styles.itemQuantity}>
                   <div className={styles.qtySelector}>
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} aria-label="Decrease quantity">
+                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} aria-label={`Decrease quantity of ${item.name}`}>
                       <Minus size={14} />
                     </button>
                     <span>{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} aria-label="Increase quantity">
+                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} aria-label={`Increase quantity of ${item.name}`}>
                       <Plus size={14} />
                     </button>
                   </div>
@@ -79,7 +79,7 @@ export default function CartPage() {
 
                 <div className={styles.itemTotal}>
                   <span className={styles.totalPrice}>₹{formatPrice(Number(item.price) * item.quantity)}</span>
-                  <button className={styles.removeBtn} onClick={() => removeItem(item.id)} aria-label="Remove item">
+                  <button className={styles.removeBtn} onClick={() => removeItem(item.id)} aria-label={`Remove ${item.name} from cart`}>
                     <Trash2 size={15} />
                   </button>
                 </div>
